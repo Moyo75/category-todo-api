@@ -47,7 +47,7 @@ namespace CategoryTodoAPI.Controllers
         [HttpPut("{id}")]
         public async Task<IActionResult> PutTodoItem(int id, TodoItem todoItem)
         {
-            if (id != todoItem.Id)
+            if (id != todoItem.TodoItemId)
             {
                 return BadRequest();
             }
@@ -82,7 +82,7 @@ namespace CategoryTodoAPI.Controllers
             _context.TodoItems.Add(todoItem);
             await _context.SaveChangesAsync();
 
-            return CreatedAtAction("GetTodoItem", new { id = todoItem.Id }, todoItem);
+            return CreatedAtAction("GetTodoItem", new { id = todoItem.TodoItemId }, todoItem);
         }
 
         // DELETE: api/TodoItems/5
@@ -103,7 +103,7 @@ namespace CategoryTodoAPI.Controllers
 
         private bool TodoItemExists(int id)
         {
-            return _context.TodoItems.Any(e => e.Id == id);
+            return _context.TodoItems.Any(e => e.TodoItemId == id);
         }
     }
 }
