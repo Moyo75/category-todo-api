@@ -10,9 +10,8 @@ namespace CategoryTodoAPI.Models
     public class TodoItem
     {
         public int TodoItemId { get; set; }
+        //public int CategoryId { get; set; }
         public string Name { get; set; }
-
-       // [ForeignKey("CategoryId")]
         public Category Category { get; set; }
-    }
+    }   
 }

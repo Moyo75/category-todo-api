@@ -24,6 +24,7 @@ namespace CategoryTodoAPI.Controllers
         [HttpGet]
         public async Task<ActionResult<IEnumerable<TodoItem>>> GetTodoItems()
         {
+           // _context.TodoItems.Include(d => d.Category);
             return await _context.TodoItems.ToListAsync();
         }
 

@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using CategoryTodoAPI.Models;
+using Newtonsoft.Json;
 
 namespace CategoryTodoAPI.Controllers
 {
@@ -79,6 +80,8 @@ namespace CategoryTodoAPI.Controllers
         [HttpPost]
         public async Task<ActionResult<Category>> PostCategory(Category category)
         {
+            //var convert = JsonConvert.SerializeObject(category);
+            // Trying to convert object to string here but it's not working...
             _context.Categories.Add(category);
             await _context.SaveChangesAsync();
 
